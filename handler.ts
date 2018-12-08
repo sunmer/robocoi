@@ -2,7 +2,7 @@ import { Handler, Context, Callback } from 'aws-lambda';
 import * as https from "https";
 
 const getBitcoinPrice: Handler = async (event: any, context: Context, callback: Callback) => {
-  return fetchBitcoinPrice().then((priceResponse) => {
+  return fetchBitcoinPrice().then((priceResponse: string) => {
     return {
       statusCode: 200,
       body: JSON.parse(priceResponse)["bpi"]
