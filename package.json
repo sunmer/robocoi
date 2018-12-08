@@ -1,0 +1,27 @@
+{
+  "name": "serverless-bitcoin",
+  "version": "1.0.0",
+  "description": "Get the current price of Bitcoin - serverless on AWS!",
+  "main": "index.js",
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.15"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "aws-lambda": "^0.1.2",
+    "serverless-plugin-typescript": "^1.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunmer/serverless-bitcoin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunmer/serverless-bitcoin/issues"
+  },
+  "homepage": "https://github.com/sunmer/serverless-bitcoin#readme"
+}
