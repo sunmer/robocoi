@@ -19,6 +19,8 @@ service: sless # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
+  environment:
+    CRYPTOCOMPARE_API_KEY: 
 
 # you can overwrite defaults here
 #  stage: dev
@@ -54,8 +56,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  getBitcoinPrice:
-    handler: handler.getBitcoinPrice
+  getCoinPrice:
+    handler: handler.getCoinPrice
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

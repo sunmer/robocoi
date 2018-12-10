@@ -1,32 +1,47 @@
-import { Handler, Context, Callback } from 'aws-lambda';
+import { Context, Callback } from 'aws-lambda';
 import * as https from "https";
 
-const getBitcoinPrice: Handler = async (event: any, context: Context, callback: Callback) => {
-  return fetchBitcoinPrice().then((priceResponse: string) => {
-    return {
-      statusCode: 200,
-      body: JSON.parse(priceResponse)["bpi"]
-    }
-  }).catch(error => { 
-    return { 
-      statusCode: 400,
-      body: error
-    }
-  });
+export interface IResponse {
+  statusCode: number,
+  body: any
 };
 
-function fetchBitcoinPrice() {
-  return new Promise(function(resolve, reject) {
-    https.get('https://api.coindesk.com/v1/bpi/currentprice.json', res => {
-      let response = '';
-      res.on('data', (d) => {
-        response += d;
-      });
-      res.on('end', () => {
-        resolve(response);
-      });
-    }).on("error", reject);
-  })
+export const getCoinPrice = async (event?: any, context?: Context, callback?: Callback) => {
+    const res: IResponse = await fetchPrice().then((priceResponse: string) => {
+      return {
+        statusCode: 200,
+        body: JSON.parse(priceResponse)
+      }
+    }).catch(error => { 
+      return { 
+        statusCode: 400,
+        body: error
+      }
+    });
+
+    return res;
+};
+
+const httpOptions: https.RequestOptions = {
+  hostname: 'min-api.cryptocompare.com',
+  method: 'GET',
+  path: '/data/price?fsym=BTC&tsyms=USD',
+  headers: {
+    authorization: 'Apikey ' + process.env['CRYPTOCOMPARE_API_KEY']
+  }
 }
 
-export { getBitcoinPrice }
+function fetchPrice() {
+  return new Promise(function(resolve, reject) {
+    let req = https.request(httpOptions, (response: any) => {
+      let result = '';
+      response.on('data', (d: any) => {
+        result += d;
+      });
+      response.on('end', () => {
+        resolve(result);
+      });
+    }).on("error", reject);
+    req.end();
+  })
+}

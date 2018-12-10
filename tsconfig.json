@@ -17,6 +17,7 @@
   },
   "exclude": [ "node_modules" ],
   "files": [
-    "handler.ts"
+    "handler.ts",
+    "test/handler-test.ts"
   ]
 }

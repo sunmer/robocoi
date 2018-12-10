@@ -7,12 +7,18 @@
     "@types/aws-lambda": "^8.10.15"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.12",
     "aws-lambda": "^0.1.2",
-    "serverless-plugin-typescript": "^1.1.5"
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "serverless-plugin-typescript": "^1.1.5",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require ts-node/register test/handler-test.ts"
   },
   "repository": {
     "type": "git",
