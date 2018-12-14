@@ -10,7 +10,7 @@ export const getCoinPrice = async (event?: any, context?: Context, callback?: Ca
     const res: IResponse = await fetchPrice().then((priceResponse: string) => {
       return {
         statusCode: 200,
-        body: JSON.parse(priceResponse)
+        body: priceResponse
       }
     }).catch(error => { 
       return { 
