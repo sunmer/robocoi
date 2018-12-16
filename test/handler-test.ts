@@ -1,13 +1,15 @@
 import { expect } from 'chai';
-import { getCoinPrice } from '../handler';
+import { Event, getCoinPrice } from '../handler';
 
 describe('coinPrice', async () => {
   it('contains the correct properties', async () => {
-    let s = await getCoinPrice();
+    let event: Event = { symbol: 'BTC' }
+    let s = await getCoinPrice(event);
     expect(s).to.have.keys('statusCode', 'body');
   });
   it('returns HTTP status code 200', async () => {
-    let s = await getCoinPrice();
+    let event: Event = { symbol: 'BTC' }
+    let s = await getCoinPrice(event);
     expect(s.statusCode).to.equal(200);
   });
 });

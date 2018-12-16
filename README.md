@@ -1,5 +1,5 @@
-# serverless-bitcoin
-Get the current price of Bitcoin - serverless on AWS!
+# Robocoi
+Get the current price of cryptocurrencies - serverless on AWS!
 
 ## prerequisites
 - Node.js v6.5.0 or later.

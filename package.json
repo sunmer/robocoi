@@ -1,7 +1,7 @@
 {
-  "name": "serverless-bitcoin",
+  "name": "robocoi",
   "version": "1.0.0",
-  "description": "Get the current price of Bitcoin - serverless on AWS!",
+  "description": "Get the current price of cryptocurrency - serverless on AWS!",
   "main": "index.js",
   "dependencies": {
     "@types/aws-lambda": "^8.10.15"
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunmer/serverless-bitcoin.git"
+    "url": "git+https://github.com/sunmer/robocoi.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sunmer/serverless-bitcoin/issues"
+    "url": "https://github.com/sunmer/robocoi/issues"
   },
-  "homepage": "https://github.com/sunmer/serverless-bitcoin#readme"
+  "homepage": "https://github.com/sunmer/robocoi#readme"
 }
