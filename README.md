@@ -15,4 +15,4 @@ Get the current price of cryptocurrencies - serverless on AWS!
 - Set your API key in `serverless.yml`, under `CRYPTOCOMPARE_API_KEY`
 - For running Chai tests, set your API key in `launch.json` under `CRYPTOCOMPARE_API_KEY`
 - Run `sls deploy` to deploy to AWS Lambda. The default region is `us-east-1`
-- Run `sls invoke -f getCoinPrice`. You should get the Bitcoin price in USD
+- Run `sls invoke local -f getCoinPrice --path test/test.json`. You should get the Bitcoin price in USD
