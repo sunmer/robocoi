@@ -6,12 +6,8 @@ export interface IResponse {
   body: any
 };
 
-export interface Event {
-  symbol: string
-}
-
-export const getCoinPrice = async (event: Event, context?: Context, callback?: Callback) => {
-  const res: IResponse = await fetchPrice(event.symbol).then((priceResponse: string) => {
+export const getCoinPrice = async (event: any, context?: Context, callback?: Callback) => {
+  const res: IResponse = await fetchPrice(event.pathParameters.symbol).then((priceResponse: string) => {
     return {
       statusCode: 200,
       body: priceResponse
