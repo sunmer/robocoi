@@ -23,6 +23,7 @@ export const getCoinPrice = async (event: any, context?: Context, callback?: Cal
 };
 
 function populateHttpRequest(coinSymbol: string): https.RequestOptions {
+  coinSymbol = encodeURI(coinSymbol.toUpperCase());
   return {
     hostname: 'min-api.cryptocompare.com',
     method: 'GET',

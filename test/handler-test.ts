@@ -12,4 +12,9 @@ describe('coinPrice', async () => {
     let s = await getCoinPrice(event);
     expect(s.statusCode).to.equal(200);
   });
+  it('normalizes the coin symbol', async () => {
+    let event = { pathParameters: { symbol: 'btc' } };
+    let s = await getCoinPrice(event);
+    expect(s.statusCode).to.equal(200);
+  });
 });
